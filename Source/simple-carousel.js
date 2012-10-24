@@ -36,7 +36,7 @@ var SimpleCarousel = new Class(
 	},
 	
 	items: null,
-	currentPage: 0,
+	currentPage: 1,
 	numPages: 0,
 	pageWidth: 0,
 	pageButtons: null,
@@ -153,8 +153,9 @@ var SimpleCarousel = new Class(
 	 *
 	 * @public
 	 */
-	previous: function()
+	previous: function(event)
 	{
+		event.preventDefault();
 		this.goToPage(this.currentPage - 1);
 		this.fireEvent('previous');
 	},
@@ -164,8 +165,9 @@ var SimpleCarousel = new Class(
 	 *
 	 * @public
 	 */
-	next: function()
+	next: function(event)
 	{
+		event.preventDefault();
 		this.goToPage(this.currentPage + 1);
 		this.fireEvent('next');
 	},
